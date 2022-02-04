@@ -34,16 +34,7 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
                 } // case
                 
                 case 3:{ // crear alumno
-                    String nombre = JOptionPane.showInputDialog("Nombre del estudiante:");
-                    Date fecha = new Date();
-                    DateFormat fechaNacimiento = new SimpleDateFormat("yyyy/MM/dd");
-                    fecha = fechaNacimiento.parse(JOptionPane.showInputDialog("Fecha de nacimiento (yyyy/MM/dd):"));
-                    int iD, iD_Estudiante;
-                    ArrayList <Clase> clases_ = new ArrayList(); // clases del alumno
-                    if(identidadUnica(iD, "a") && identidadEstudianteUnica(iD_Estudiante) && claseExiste(clases_)){
-                        alumnos.add(new Alumnos(iD_Estudiante, clases_, nombre, iD, fecha));
-                    }                   
-
+                    crearAlumno();
                     break;                    
                 } // case
                 
@@ -188,5 +179,18 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
             clases.add(new Clase(nombreClase, codeClase));
         }        
     } 
+    
+    public static void crearAlumno() throws ParseException{
+        String nombre = JOptionPane.showInputDialog("Nombre del estudiante:");
+        Date fecha = new Date();
+        DateFormat fechaNacimiento = new SimpleDateFormat("yyyy/MM/dd");
+        fecha = fechaNacimiento.parse(JOptionPane.showInputDialog("Fecha de nacimiento (yyyy/MM/dd):"));
+        int iD = Integer.parseInt(JOptionPane.showInputDialog("Identidad: "));
+        int iD_Estudiante = Integer.parseInt(JOptionPane.showInputDialog("Identidad de estudiante: "));
+        ArrayList <Clase> clases_ = new ArrayList(); // clases del alumno
+        if(identidadUnica(iD, "a") && identidadEstudianteUnica(iD_Estudiante) && claseExiste(clases_)){
+            alumnos.add(new Alumnos(iD_Estudiante, clases_, nombre, iD, fecha));
+        }       
+    }
     
 } // main

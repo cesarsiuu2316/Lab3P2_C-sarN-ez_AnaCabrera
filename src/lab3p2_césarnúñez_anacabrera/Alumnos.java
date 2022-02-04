@@ -1,25 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package lab3p2_césarnúñez_anacabrera;
-
 import java.util.ArrayList;
+import java.util.Date;
 
-/**
- *
- * @author BAC
- */
+
 public class Alumnos extends Persona{
     ArrayList <Clase> listaClases = new ArrayList();
-    private int idEstudiante;
-  
+    private int idEstudiante;  
 
-    public Alumnos(int idEstudiante, int listaClases, String nombre, int Identidad, int fecha) {
+    public Alumnos(int idEstudiante, ArrayList<Clase> listaClases, String nombre, int Identidad, Date fecha) {
         super(nombre, Identidad, fecha);
-        this.idEstudiante = idEstudiante;
-       
+        this.idEstudiante = idEstudiante;  
+        this.listaClases = listaClases;
     }
 
     public int getIdEstudiante() {
