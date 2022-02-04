@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Transporte {
     
-    protected int placa; // única
-    protected Color color;
-    protected String transportista;
-    protected ArrayList<Estacion> estaciones = new ArrayList();
+    private int placa; // única
+    private Color color;
+    private String transportista;
+    private ArrayList<Estacion> estaciones = new ArrayList();
 
     public Transporte() {
     }
