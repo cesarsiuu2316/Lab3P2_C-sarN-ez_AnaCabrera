@@ -14,8 +14,31 @@ public class Transportistas extends Persona{
     private int Aexpe; //Años de experiencia 
     private String barrio;
 
-    public Transportistas(String nombre, int Identidad, int fecha) {
+    public Transportistas(int Aexpe, String barrio, String nombre, int Identidad, int fecha) {
         super(nombre, Identidad, fecha);
+        this.Aexpe = Aexpe;
+        this.barrio = barrio;
+    }
+
+    public int getAexpe() {
+        return Aexpe;
+    }
+
+    public void setAexpe(int Aexpe) {
+        this.Aexpe = Aexpe;
+    }
+
+    public String getBarrio() {
+        return barrio;
+    }
+
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+ "Transportistas{" + "Aexpe=" + Aexpe + ", barrio=" + barrio + '}';
     }
     
 }
