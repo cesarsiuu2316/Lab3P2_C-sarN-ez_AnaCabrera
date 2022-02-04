@@ -23,7 +23,7 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
                 } // case
                 
                 case 1:{
-                    
+                    crearClase();
                     break;                    
                 } // case
                 
@@ -41,8 +41,7 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
                     ArrayList <Clase> clases_ = new ArrayList(); // clases del alumno
                     if(identidadUnica(iD, "a") && identidadEstudianteUnica(iD_Estudiante) && claseExiste(clases_)){
                         alumnos.add(new Alumnos(iD_Estudiante, clases_, nombre, iD, fechaNacimiento));
-                    }
-                    
+                    }                   
 
                     break;                    
                 } // case
@@ -173,5 +172,20 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
         }
         return true;
     }
+    
+    public static void crearClase(){
+        String nombreClase = (JOptionPane.showInputDialog("Ingrese el nombre de la clase"));
+        int codeClase = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el codigo de la clase"));
+        boolean codeExiste = false;
+        for (Clase code: clases){
+            if (code.getCodeClase() == codeClase){
+                codeExiste = true;
+                break;   
+            } 
+        }
+        if(codeExiste == false){
+            clases.add(new Clase(nombreClase, codeClase));
+        }        
+    } 
     
 } // main
