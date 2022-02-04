@@ -14,8 +14,13 @@ public class Transportistas extends Persona{
     private int Aexpe; //Años de experiencia 
     private String barrio;
 
-    public Transportistas(String nombre, int Identidad, int fecha) {
+    public Transportistas(int Aexpe, String barrio, String nombre, int Identidad, int fecha) {
         super(nombre, Identidad, fecha);
+        this.Aexpe = Aexpe;
+        this.barrio = barrio;
     }
+    
+    
+ 
     
 }

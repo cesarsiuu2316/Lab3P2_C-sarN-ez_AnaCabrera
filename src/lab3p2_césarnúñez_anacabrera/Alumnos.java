@@ -10,9 +10,14 @@ package lab3p2_césarnúñez_anacabrera;
  * @author BAC
  */
 public class Alumnos extends Persona{
+    
+    private int idEstudiante;
+    private int listaClases;
 
-    public Alumnos(String nombre, int Identidad, int fecha) {
+    public Alumnos(int idEstudiante, int listaClases, String nombre, int Identidad, int fecha) {
         super(nombre, Identidad, fecha);
+        this.idEstudiante = idEstudiante;
+        this.listaClases = listaClases;
     }
     
 }
