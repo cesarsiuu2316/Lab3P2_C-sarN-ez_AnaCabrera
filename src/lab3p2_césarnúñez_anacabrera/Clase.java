@@ -34,7 +34,6 @@ public class Clase {
     public void setCodeClase(int codeClase) {
         this.codeClase = codeClase;
     }
-
- 
-
+  
+     
 }
