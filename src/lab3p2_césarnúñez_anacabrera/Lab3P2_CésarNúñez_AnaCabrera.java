@@ -1,5 +1,6 @@
 package lab3p2_césarnúñez_anacabrera;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +15,7 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
     private static ArrayList<Clase> clases = new ArrayList();    
     private static ArrayList<Estacion> estaciones = new ArrayList();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         while(true){
             switch(menu()){
                 case 0:{
@@ -23,9 +24,8 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
                 } // case
                 
                 case 1:{
-                    
-                   
-                    
+                    crearClase();
+
                     break;                    
                 } // case
                 
@@ -42,9 +42,8 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
                     int iD, iD_Estudiante;
                     ArrayList <Clase> clases_ = new ArrayList(); // clases del alumno
                     if(identidadUnica(iD, "a") && identidadEstudianteUnica(iD_Estudiante) && claseExiste(clases_)){
-                        alumnos.add(new Alumnos(iD_Estudiante, clases_, nombre, iD, fechaNacimiento));
-                    }
-                    
+                        alumnos.add(new Alumnos(iD_Estudiante, clases_, nombre, iD, fecha));
+                    }                   
 
                     break;                    
                 } // case
@@ -175,5 +174,20 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
         }
         return true;
     }
+    
+    public static void crearClase(){
+        String nombreClase = (JOptionPane.showInputDialog("Ingrese el nombre de la clase"));
+        int codeClase = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el codigo de la clase"));
+        boolean codeExiste = false;
+        for (Clase code: clases){
+            if (code.getCodeClase() == codeClase){
+                codeExiste = true;
+                break;   
+            } 
+        }
+        if(codeExiste == false){
+            clases.add(new Clase(nombreClase, codeClase));
+        }        
+    } 
     
 } // main
