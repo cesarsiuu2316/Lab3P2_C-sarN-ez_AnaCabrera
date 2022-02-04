@@ -5,19 +5,21 @@
  */
 package lab3p2_césarnúñez_anacabrera;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author BAC
  */
 public class Alumnos extends Persona{
-    
+    ArrayList <Clase> listaClases = new ArrayList();
     private int idEstudiante;
-    private int listaClases;
+  
 
     public Alumnos(int idEstudiante, int listaClases, String nombre, int Identidad, int fecha) {
         super(nombre, Identidad, fecha);
         this.idEstudiante = idEstudiante;
-        this.listaClases = listaClases;
+       
     }
 
     public int getIdEstudiante() {
@@ -28,13 +30,6 @@ public class Alumnos extends Persona{
         this.idEstudiante = idEstudiante;
     }
 
-    public int getListaClases() {
-        return listaClases;
-    }
-
-    public void setListaClases(int listaClases) {
-        this.listaClases = listaClases;
-    }
 
     @Override
     public String toString() {
