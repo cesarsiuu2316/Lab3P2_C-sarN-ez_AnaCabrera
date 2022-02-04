@@ -1,10 +1,18 @@
 package lab3p2_césarnúñez_anacabrera;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class Lab3P2_CésarNúñez_AnaCabrera {
     
     public Scanner sc = new Scanner(System.in);
+    private static ArrayList<Alumnos> alumnos = new ArrayList();
+    private static ArrayList<Transportistas> transportistas = new ArrayList();
+    private static ArrayList<Clase> clases = new ArrayList();    
+    private static ArrayList<Estacion> estaciones = new ArrayList();
 
     public static void main(String[] args) {
         while(true){
@@ -26,8 +34,18 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
                     break;                    
                 } // case
                 
-                case 3:{
+                case 3:{ // crear alumno
+                    String nombre = JOptionPane.showInputDialog("Nombre del estudiante:");
+                    Date fecha = new Date();
+                    DateFormat fechaNacimiento = new SimpleDateFormat("yyyy/MM/dd");
+                    fecha = fechaNacimiento.parse(JOptionPane.showInputDialog("Fecha de nacimiento (yyyy/MM/dd):"));
+                    int iD, iD_Estudiante;
+                    ArrayList <Clase> clases_ = new ArrayList(); // clases del alumno
+                    if(identidadUnica(iD, "a") && identidadEstudianteUnica(iD_Estudiante) && claseExiste(clases_)){
+                        alumnos.add(new Alumnos(iD_Estudiante, clases_, nombre, iD, fechaNacimiento));
+                    }
                     
+
                     break;                    
                 } // case
                 
@@ -85,8 +103,8 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
         int opcion = Integer.parseInt(JOptionPane.showInputDialog(" M E N U\n"
                 + "0. Salir \n"
                 + "1. Crear clase\n"
-                + "2. Crear ruta\n"
-                + "3. Crear Aluno\n"
+                + "2. Crear estación\n"
+                + "3. Crear Alumno\n"
                 + "4. Agregar clase a alumno\n"
                 + "5. Crear transportista\n"
                 + "6. Crear transporte\n"
@@ -115,4 +133,47 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
                 + "Ingrese una opción: "));
         return opcion;        
     }
-}
+    
+    public static boolean claseExiste(ArrayList<Clase> listaClasesAlumno){
+        boolean claseExiste = false;
+        for (Clase clase_ : listaClasesAlumno) {
+            claseExiste = false;
+            for (Clase clase : clases) {
+                if(clase_.equals(clase.getNombreClase())){
+                    claseExiste = true;
+                }
+            }
+            if(claseExiste == false){
+                break;
+            }
+        }
+        return claseExiste;
+    }
+    
+    public static boolean identidadUnica(int iD, String persona){
+        if(persona.equals("a")){
+            for (Alumnos alumno : alumnos) {
+                if(alumno.getIdentidad() == iD){
+                    return false;
+                }
+            }
+        }else if(persona.equals("t")){
+            for (Transportistas transportista : transportistas) {
+                if(transportista.getIdentidad() == iD){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    public static boolean identidadEstudianteUnica(int iD){
+        for (Alumnos alumno : alumnos) {
+            if(alumno.getIdEstudiante() == iD){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+} // main

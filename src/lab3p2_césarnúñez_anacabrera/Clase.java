@@ -34,34 +34,6 @@ public class Clase {
     public void setCodeClase(int codeClase) {
         this.codeClase = codeClase;
     }
-    
-   
-        String nombreClase;
-        int codeClase;
-        
-        String nombreClase = (JOption.showInputDialog("Ingrese el nombre de la clase"));
-        int codeClase = Integer.parseInt(JOption.showInputDialog("Ingrese el codigo de la clase"));
-        boolean codeExiste = false;
-        for (Clase code: clases){
-           
-            if (code.getCodeClase() == codeClase){
-                codeExiste = true;
-                break;      
-        } 
-            if(codeExiste == false){
-                clases.add(new Clase(nombreClase, codeClase));
-            }
-            
-            
-    }
-
- 
-    
-}
-
-
-
-
-     
+  
      
 }
