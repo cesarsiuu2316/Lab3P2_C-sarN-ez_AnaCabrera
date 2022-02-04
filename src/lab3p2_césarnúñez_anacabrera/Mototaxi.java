@@ -1,14 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab3p2_césarnúñez_anacabrera;
+import java.awt.Color;
+import java.util.ArrayList;
 
-/**
- *
- * @author cesar
- */
-public class Mototaxi {
+public class Mototaxi extends Transporte{
     
+    ArrayList<Alumnos> alumnos = new ArrayList();
+
+    public Mototaxi() {
+        super();
+    }
+
+    public Mototaxi(int placa, Color color, Transportistas transportista, ArrayList<Alumnos> alumnos) {
+        super(placa, color, transportista);
+        this.alumnos = alumnos;
+    }
+
+    public Mototaxi(int placa, Color color, Transportistas transportista) {
+        super(placa, color, transportista);
+    }
+
+    public ArrayList<Alumnos> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(ArrayList<Alumnos> alumnos) {
+        this.alumnos = alumnos;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", alumnos = " + alumnos;
+    }   
+        
 }

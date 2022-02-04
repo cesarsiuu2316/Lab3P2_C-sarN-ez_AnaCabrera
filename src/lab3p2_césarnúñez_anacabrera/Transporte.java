@@ -6,13 +6,13 @@ public class Transporte {
     
     private int placa; // única
     private Color color;
-    private String transportista;
+    private Transportistas transportista;
     private ArrayList<Estacion> estaciones = new ArrayList();
 
     public Transporte() {
     }
 
-    public Transporte(int placa, Color color, String transportista) {
+    public Transporte(int placa, Color color, Transportistas transportista) {
         this.placa = placa;
         this.color = color;
         this.transportista = transportista;
@@ -34,11 +34,11 @@ public class Transporte {
         this.color = color;
     }
 
-    public String getTransportista() {
+    public Transportistas getTransportista() {
         return transportista;
     }
 
-    public void setTransportista(String transportista) {
+    public void setTransportista(Transportistas transportista) {
         this.transportista = transportista;
     }
 
@@ -52,7 +52,7 @@ public class Transporte {
 
     @Override
     public String toString() {
-        return "placa = " + placa + ", color = " + color + ", transportista = " + transportista + ", estaciones = " + estaciones;
+        return "placa = " + placa + ", color = " + color + ", transportista = [" + transportista + "], estaciones = " + estaciones;
     }   
     
     

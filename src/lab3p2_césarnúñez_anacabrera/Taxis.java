@@ -12,7 +12,7 @@ public class Taxis extends Transporte {
         super();
     }
 
-    public Taxis(int nTaxi, int placa, Color color, String transportista) {
+    public Taxis(int nTaxi, int placa, Color color, Transportistas transportista) {
         super(placa, color, transportista);
         this.nTaxi = nTaxi;
     }
@@ -32,16 +32,10 @@ public class Taxis extends Transporte {
     public void setnTaxi(int nTaxi) {
         this.nTaxi = nTaxi;
     }
-    
-    public void a(){
-        String texto = "hola";
-        JOptionPane.showMessageDialog(null, texto + "Ana");
-        
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog("1) \n"
-                + "2) \n"
-                + "3) "
-                + "Ingrese una opción"));
-    }
-    
-    
+
+    @Override
+    public String toString() {
+        return super.toString() + ", alumnos = " + alumnos + ", nTaxi = " + nTaxi;
+    } 
+       
 }
