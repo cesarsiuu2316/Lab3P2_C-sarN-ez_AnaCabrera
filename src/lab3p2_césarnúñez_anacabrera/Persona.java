@@ -43,6 +43,11 @@ public class Persona {
     public void setFecha(int fecha) {
         this.fecha = fecha;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "nombre=" + nombre + ", Identidad=" + Identidad + ", fecha=" + fecha + '}';
+    }
     
-    
+	
 }

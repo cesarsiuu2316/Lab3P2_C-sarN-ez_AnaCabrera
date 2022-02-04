@@ -19,5 +19,27 @@ public class Alumnos extends Persona{
         this.idEstudiante = idEstudiante;
         this.listaClases = listaClases;
     }
+
+    public int getIdEstudiante() {
+        return idEstudiante;
+    }
+
+    public void setIdEstudiante(int idEstudiante) {
+        this.idEstudiante = idEstudiante;
+    }
+
+    public int getListaClases() {
+        return listaClases;
+    }
+
+    public void setListaClases(int listaClases) {
+        this.listaClases = listaClases;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+ "Alumnos{" + "idEstudiante=" + idEstudiante + ", listaClases=" + listaClases + '}';
+    }
+    
     
 }
