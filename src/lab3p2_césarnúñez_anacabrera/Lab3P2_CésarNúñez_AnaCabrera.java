@@ -1,5 +1,6 @@
 package lab3p2_césarnúñez_anacabrera;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +15,7 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
     private static ArrayList<Clase> clases = new ArrayList();    
     private static ArrayList<Estacion> estaciones = new ArrayList();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         while(true){
             switch(menu()){
                 case 0:{
@@ -40,7 +41,7 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
                     int iD, iD_Estudiante;
                     ArrayList <Clase> clases_ = new ArrayList(); // clases del alumno
                     if(identidadUnica(iD, "a") && identidadEstudianteUnica(iD_Estudiante) && claseExiste(clases_)){
-                        alumnos.add(new Alumnos(iD_Estudiante, clases_, nombre, iD, fechaNacimiento));
+                        alumnos.add(new Alumnos(iD_Estudiante, clases_, nombre, iD, fecha));
                     }                   
 
                     break;                    
