@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Transporte {
     
     private int placa; // única
-    private Color color;
+    private String color;
     private Transportistas transportista;
     private ArrayList<Estacion> estaciones = new ArrayList();
 
     public Transporte() {
     }
 
-    public Transporte(int placa, Color color, Transportistas transportista) {
+    public Transporte(int placa, String color, Transportistas transportista) {
         this.placa = placa;
         this.color = color;
         this.transportista = transportista;
@@ -26,11 +26,11 @@ public class Transporte {
         this.placa = placa;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
 

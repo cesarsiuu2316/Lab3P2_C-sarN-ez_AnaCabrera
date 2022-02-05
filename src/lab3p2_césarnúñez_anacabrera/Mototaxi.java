@@ -10,12 +10,12 @@ public class Mototaxi extends Transporte{
         super();
     }
 
-    public Mototaxi(int placa, Color color, Transportistas transportista, ArrayList<Alumnos> alumnos) {
+    public Mototaxi(int placa, String color, Transportistas transportista, ArrayList<Alumnos> alumnos) {
         super(placa, color, transportista);
         this.alumnos = alumnos;
     }
 
-    public Mototaxi(int placa, Color color, Transportistas transportista) {
+    public Mototaxi(int placa, String color, Transportistas transportista) {
         super(placa, color, transportista);
     }
 
