@@ -1,24 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package lab3p2_césarnúñez_anacabrera;
 
-/**
- *
- * @author BAC
- */
+import java.util.Date;
+
+
 public class Persona {
     private String nombre; 
     private int Identidad;
-    private int fecha;
+    private Date fecha;
 
-    public Persona(String nombre, int Identidad, int fecha) {
+    public Persona(String nombre, int Identidad, Date fecha) {
         this.nombre = nombre;
         this.Identidad = Identidad;
         this.fecha = fecha;
     }
+
+    public Persona() {
+    }   
+    
 
     public String getNombre() {
         return nombre;
@@ -36,17 +35,17 @@ public class Persona {
         this.Identidad = Identidad;
     }
 
-    public int getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(int fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", Identidad=" + Identidad + ", fecha=" + fecha + '}';
+        return "nombre = " + nombre + ", Identidad = " + Identidad + ", fecha = " + fecha;
     }
     
 	

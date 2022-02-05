@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package lab3p2_césarnúñez_anacabrera;
 
 /**
@@ -34,6 +30,13 @@ public class Clase {
     public void setCodeClase(int codeClase) {
         this.codeClase = codeClase;
     }
+
+    @Override
+    public String toString() {
+        return "nombreClase = " + nombreClase + ", codeClase = " + codeClase;
+    }
+    
+    
   
      
 }

@@ -5,6 +5,8 @@
  */
 package lab3p2_césarnúñez_anacabrera;
 
+import java.util.Date;
+
 /**
  *
  * @author BAC
@@ -14,7 +16,7 @@ public class Transportistas extends Persona{
     private int Aexpe; //Años de experiencia 
     private String barrio;
 
-    public Transportistas(int Aexpe, String barrio, String nombre, int Identidad, int fecha) {
+    public Transportistas(int Aexpe, String barrio, String nombre, int Identidad, Date fecha) {
         super(nombre, Identidad, fecha);
         this.Aexpe = Aexpe;
         this.barrio = barrio;
@@ -38,7 +40,7 @@ public class Transportistas extends Persona{
 
     @Override
     public String toString() {
-        return super.toString()+ "Transportistas{" + "Aexpe=" + Aexpe + ", barrio=" + barrio + '}';
+        return super.toString() + ", Años de experiencia = " + Aexpe + ", Apodo = " + barrio;
     }
     
 }

@@ -13,7 +13,16 @@ public class Alumnos extends Persona{
         this.idEstudiante = idEstudiante;  
         this.listaClases = listaClases;
     }
+    
+    public Alumnos(int idEstudiante, String nombre, int Identidad, Date fecha) {
+        super(nombre, Identidad, fecha);
+        this.idEstudiante = idEstudiante;  
+    }
 
+    public Alumnos(String nombre, int Identidad, Date fecha) {
+        super();
+    }  
+    
     public int getIdEstudiante() {
         return idEstudiante;
     }
@@ -22,10 +31,18 @@ public class Alumnos extends Persona{
         this.idEstudiante = idEstudiante;
     }
 
+    public ArrayList<Clase> getListaClases() {
+        return listaClases;
+    }
+
+    public void setListaClases(ArrayList<Clase> listaClases) {
+        this.listaClases = listaClases;
+    }
+
 
     @Override
     public String toString() {
-        return super.toString()+ "Alumnos{" + "idEstudiante=" + idEstudiante + ", listaClases=" + listaClases + '}';
+        return super.toString()+ ", idEstudiante = " + idEstudiante + ", listaClases = " + listaClases;
     }
     
     

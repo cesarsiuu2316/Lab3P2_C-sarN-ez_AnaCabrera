@@ -40,56 +40,170 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
                 } // case
                 
                 case 4:{
-                    crearTransportista();
+                    agregarClaseAlumno();
                     break;                    
                 } // case
                 
                 case 5:{
-                    crearTransporte();
+                    crearTransportista();
                     break;                    
                 } // case
                 
                 case 6:{
-                    
+                    crearTransporte();
                     break;                    
                 } // case
                 
                 case 7:{
-                    /*while(true){
+                    int s = 1;
+                    int i = 0;
+                    String c = "";
+                    for (Object temp : transportes) {
+                        c += i + ") " + temp;  
+                        i++;
+                    }                    
+                    int opcion = Integer.parseInt(JOptionPane.showInputDialog(c + "\nIngrese la opción"));
+                    while(s == 1){
                         switch(menuSimulacion()){
-                            case 1:{
-                                System.exit(0);
+                            case 0:{
+                                s = 0;
                                 break;
                             }
-                        }
-                    }
-                    break;      */              
+                            
+                            case 1:{
+                                String alumnos_ = JOptionPane.showInputDialog("Nombre del alumno: ");
+                                for (Alumnos alumno : alumnos) {
+                                    if(alumno.getNombre().equals(alumno)){
+                                        transportes.get(opcion).getAlumnos().add(alumno);
+                                    }                               
+                                }
+                                break;
+                            } // case
+                            
+                            case 2:{
+                                int j = 0;
+                                String x = "";
+                                for (Alumnos alumno : alumnos) {
+                                    x += j + ") " + alumno; 
+                                }
+                                JOptionPane.showMessageDialog(null, x);
+                                break;
+                            } // case
+                            
+                            case 3:{
+                                int j = 0;
+                                String x = "";
+                                for (Transportistas transportista : transportistas) {
+                                    x += j + ") " + transportista.getNombre();
+                                }
+                                int op = Integer.parseInt(JOptionPane.showInputDialog(x + "\nIngrese opción:"));
+                                transportes.get(opcion).setTransportista(transportistas.get(op));
+                                break;
+                            } // case
+                            
+                            case 4:{ // añadir estacion
+                                int j = 0;
+                                String x = "";
+                                for (Estacion estacion : estaciones) {
+                                    x += j + ") " + estacion.getNombre();
+                                }
+                                int op = Integer.parseInt(JOptionPane.showInputDialog(x + "\nIngrese opción:"));
+                                transportes.get(opcion).getEstaciones().add(estaciones.get(op));
+                                break;
+                            } // case
+                            
+                            case 5:{
+                                transportes.get(opcion).toString();
+                                break;
+                            } // case
+                            
+                            case 6:{
+                                for (Alumnos alumno_ : alumnos) {
+                                    for (Alumnos alumno : transportes.get(opcion).getAlumnos()) {
+                                        if(alumno.getNombre().equals(alumno_.getNombre())){
+                                            alumnos.remove(alumno_);
+                                        }                               
+                                    }   
+                                }
+                                
+                                for (Estacion estacion : estaciones) {
+                                    for (Estacion estacione : transportes.get(opcion).getEstaciones()) {
+                                        if(estacion.getNombre().equals(estacione.getNombre())){
+                                            estaciones.remove(estacion);
+                                        }
+                                    }
+                                }   
+                                
+                                transportistas.remove(transportes.get(opcion).getTransportista());
+                                transportes.remove(transportes.get(opcion));
+                                break;
+                            } // case
+                            
+                            case 7:{
+                                
+                                break;
+                            } // case
+
+                            default:{
+                                JOptionPane.showMessageDialog(null, "Ingrese una opción correcta!");
+                            }                            
+                        } // switch
+                    } // while
+                    break;                   
                 } // case                
                 
-                case 8:{
+                case 8:{ // listar clases
+                    int i = 1;
+                    String c = "";
                     for (Clase clase : clases) {
-                        JOptionPane.showMessageDialog(null, clase.toString());
+                        c += i + ") " + clase + "\n";
+                        i++;
                     }
+                    JOptionPane.showMessageDialog(null, c);
                     break;                    
                 } // case
                 
-                case 9:{
-                    
+                case 9:{ // listar estaciones
+                    int i = 1;
+                    String c = "";
+                    for (Estacion estacion : estaciones) {
+                        c += i + ") " + estacion.toString() + "\n";
+                        i++;
+                    }
+                    JOptionPane.showMessageDialog(null, c);
                     break;                    
                 } // case
                 
-                case 10:{
-                    
+                case 10:{ // listar alumnos
+                    int i = 1;
+                    String c = "";
+                    for (Alumnos alumno : alumnos) {
+                        c += i + ") " + alumno.toString() + "\n";
+                        i++;
+                    }
+                    JOptionPane.showMessageDialog(null, c);
                     break;                    
                 } // case
                 
-                case 11:{
-                    
+                case 11:{ // listar transportistas
+                    int i = 1;
+                    String c = "";
+                    for (Transportistas transportista : transportistas) {
+                        c += i + ") " + transportista.toString() + "\n";
+                        i++;
+                    }   
+                    JOptionPane.showMessageDialog(null, c);
                     break;                    
                 } // case
                 
-                case 12:{
-                    
+                case 12:{ // listar transportes
+                    int i = 1;
+                    String c = "";
+                    for (Transporte transporte : transportes) {
+                        c += i + ") " + transporte.toString() + "\n";
+                        i++;
+                    }
+                    JOptionPane.showMessageDialog(null, c);
                     break;                    
                 } // case
                 
@@ -176,9 +290,8 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
     
     public static void crearAlumno() throws ParseException{
         String nombre = JOptionPane.showInputDialog("Nombre del estudiante:");
-        Date fecha = new Date();
         DateFormat fechaNacimiento = new SimpleDateFormat("yyyy/MM/dd");
-        fecha = fechaNacimiento.parse(JOptionPane.showInputDialog("Fecha de nacimiento (yyyy/MM/dd):"));
+        Date fecha = fechaNacimiento.parse(JOptionPane.showInputDialog("Fecha de nacimiento (yyyy/MM/dd):"));
         int iD = Integer.parseInt(JOptionPane.showInputDialog("Identidad: "));
         int iD_Estudiante = Integer.parseInt(JOptionPane.showInputDialog("Identidad de estudiante: "));
         if(identidadUnica(iD, "a") && identidadEstudianteUnica(iD_Estudiante)){
@@ -208,7 +321,7 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
     }
     
     public static void crearTransportista() throws ParseException{
-        String nombre = JOptionPane.showInputDialog("Nombre del estudiante:");
+        String nombre = JOptionPane.showInputDialog("Nombre del Transportista:");
         DateFormat fechaNacimiento = new SimpleDateFormat("yyyy/MM/dd");
         Date fecha = fechaNacimiento.parse(JOptionPane.showInputDialog("Fecha de nacimiento (yyyy/MM/dd):"));
         int iD = Integer.parseInt(JOptionPane.showInputDialog("Identidad: "));
@@ -237,47 +350,36 @@ public class Lab3P2_CésarNúñez_AnaCabrera {
             }
         }
         if (placaExiste == false){
-            String nombretranst = JOptionPane.showInputDialog("Ingrese el nombre del transportista:");
-            boolean nombreExiste = false;
-            for(Transportistas nombre: transportistas){
-                if (nombre.getNombre() == nombretranst){
-                    nombreExiste = true;
-                    break;  
-                }
-            }
-            if(nombreExiste == false){
-                switch(tipo){
-                    case 1:{
-                        int nSillas = Integer.parseInt(JOptionPane.showInputDialog("Número de sillas: "));
-                        int nDePie = Integer.parseInt(JOptionPane.showInputDialog("Capacidad máxima de personas de pie: "));
-                        
-                        break;
-                    } // case
-                    
-                    case 2:{
-                        
-                        break;
-                    } // case
-                    
-                    case 3:{
-                    
-                        break;
-                    } // case
-                    
-                    case 4:{
-                    
-                        break;
-                    } // case
-                    
-                }
-            }
-        }
+            switch(tipo){
+                case 1:{
+                    int nSillas = Integer.parseInt(JOptionPane.showInputDialog("Número de sillas: "));
+                    int nDePie = Integer.parseInt(JOptionPane.showInputDialog("Capacidad máxima de personas de pie: "));
+                    transportes.add(new Bus(nSillas, nDePie, placa, color));
+                    break;
+                } // case
 
-        
-    }
-    
-    public static void Simulacion(){
-        
-    }
+                case 2:{
+                    int nTaxi = Integer.parseInt(JOptionPane.showInputDialog("Número de Taxi: "));
+                    transportes.add(new Taxis(nTaxi, placa, color));
+                    break;
+                } // case
+
+                case 3:{
+                    transportes.add(new Mototaxi(placa, color));
+                    break;
+                } // case
+
+                case 4:{
+                    int nSillas = Integer.parseInt(JOptionPane.showInputDialog("Número de sillas: "));
+                    transportes.add(new Rapidito(nSillas, placa, color));
+                    break;
+                } // case
+                
+                default:{
+                    JOptionPane.showMessageDialog(null, "La opción que ingresó es incorrecta!");
+                }
+            }            
+        }        
+    } // método
     
 } // main

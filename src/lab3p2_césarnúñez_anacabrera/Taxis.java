@@ -12,8 +12,8 @@ public class Taxis extends Transporte {
         super();
     }
 
-    public Taxis(int nTaxi, int placa, String color, Transportistas transportista) {
-        super(placa, color, transportista);
+    public Taxis(int nTaxi, int placa, String color) {
+        super(placa, color);
         this.nTaxi = nTaxi;
     }
 
